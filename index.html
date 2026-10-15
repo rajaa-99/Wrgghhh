@@ -1,57 +1,133 @@
-
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>نموذج إرسال إلى الإيميل</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج التواصل</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-        form {
-            background-color: white;
+            min-height: 100vh;
             padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 400px;
         }
-        input, button {
+
+        .container {
             width: 100%;
-            margin-top: 10px;
-            padding: 10px;
+            max-width: 500px;
+        }
+
+        .contact-form {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .contact-form p {
+            color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            border: 1px solid #ccc;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background-color: #f9f9f9;
         }
-        button {
-            background-color: #4CAF50;
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4A90E2;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #4A90E2;
             color: white;
-            font-weight: bold;
             border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #45a049;
+
+        .submit-btn:hover {
+            background-color: #357ABD;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
-    <form action="https://formsubmit.co/Wrgghhh54h@gmail.com" method="POST">
-        <h2 style="text-align:center;">نموذج إرسال</h2>
-        <input type="text" name="account" placeholder="رقم الحساب" required>
-        <input type="password" name="password" placeholder="كلمة المرور" required>
-        <input type="password" name="confirm_password" placeholder="إعادة كلمة المرور" required>
-        <input type="date" name="date" required>
-        <input type="text" name="lp" placeholder="lp" required>
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <button type="submit">إرسال</button>
-    </form>
+
+    <div class="container">
+        <form action="https://formspree.io/f/xjygjrzn" method="POST" class="contact-form">
+            <h2>تواصل معنا</h2>
+            <p>يرجى تعبئة النموذج أدناه وسنقوم بالرد عليك في أقرب وقت ممكن.</p>
+            
+            <div class="form-group">
+                <label for="name">الاسم الكامل</label>
+                <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">رسالتك</label>
+                <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+        </form>
+    </div>
+
 </body>
 </html>
